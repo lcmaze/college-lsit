@@ -1,0 +1,26 @@
+<app-nav></app-nav>
+
+<owl-carousel [options]="options" [items]="images" [carouselClasses]="['owl-theme', 'sliding']">
+    <div class="item" *ngFor="let image of images;let i = index">
+        <img class="height-set" src={{image}}/>
+    </div>
+</owl-carousel>
+
+<section class="overlay w-100 height-set pb-5">
+    <div class="container text-center pb-5">
+        <h1 class="mb-5">Search for over <span>15,000</span><br>colleges in India</h1>
+        <app-searchbox></app-searchbox>
+    </div>
+</section>
+
+<app-scrollanim></app-scrollanim>
+
+<!-- <div class="py-6">
+    <app-categories></app-categories>
+</div> -->
+
+<div class="bg-grey py-6">
+    <app-featured></app-featured>
+</div>
+
+<app-footer></app-footer>

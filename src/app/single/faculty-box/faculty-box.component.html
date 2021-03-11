@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-12 col-md-6 col-xl-4 p-3" *ngFor="let f of faculty">
+        <div class="faculty">
+            <h2>{{f.faculty_name}}</h2>
+            <h3>{{f.faculty_designation}}</h3>
+            <ng-container *ngIf="f.faculty_phone || f.faculty_contact">
+                <hr>
+                <h4 *ngIf="f.faculty_phone"><span class="material-icons mr-1">phone</span> {{f.faculty_phone}}</h4>
+                <h4 *ngIf="f.faculty_contact"><span class="material-icons mr-1">email</span> {{f.faculty_contact}}</h4>
+            </ng-container>
+        </div>
+    </div>
+</div>

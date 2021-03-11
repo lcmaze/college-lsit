@@ -1,0 +1,70 @@
+.search {
+    position: relative !important;
+    width: 700px;
+    max-width: 100%;
+    input {
+        padding: 14px 24px;
+        font-size: 18px;
+        border-radius: 6px;
+        box-shadow: 0px 0px 8px #00000020;
+        border: none;
+        flex-grow: 1;
+        width: 100%;
+        color: #3d3d3d;
+        pointer-events: visible;
+    }
+    input::placeholder {
+        color: #7e7e7e;
+    }
+    input:focus,
+    input:hover {
+        outline: none;
+        box-shadow: 0px 8px 8px #00000020;
+    }
+    .material-icons {
+        color: #66bb6a;
+        background-color: #fff;
+        height: 100%;
+        padding: 17px;
+        border-radius: 6px;
+        position: absolute;
+        right: 0;
+    }
+}
+
+.suggestion-box {
+    width: 700px;
+    max-width: 100%;
+    pointer-events: visible;
+    position: relative;
+    .suggestion-list {
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        width: 100%;
+        text-align: left;
+        border-radius: 6px;
+        overflow: hidden;
+        li {
+            background-color: #fff;
+            color: #7e7e7e;
+            width: 100%;
+            list-style: none;
+            padding: 12px 24px;
+            border-bottom: 1px solid #eaeaea;
+            cursor: pointer;
+            font-size: 16px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            span {
+                font-size: 18px;
+                vertical-align: sub;
+            }
+        }
+        li:hover {
+            background-color: #eaeaea;
+            color: #3d3d3d;
+        }
+    }
+}

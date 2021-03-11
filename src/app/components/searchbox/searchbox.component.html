@@ -1,0 +1,11 @@
+<div class="search mx-auto">
+    <input type="text" placeholder="Search Colleges..." (input)="search($event)">
+    <span class="material-icons">search</span>
+</div>
+
+<!-- show a maximum of 4 suggestion only -->
+<div class="suggestion-box mx-auto" *ngIf="colleges && colleges.length > 0">
+    <div class="suggestion-list mt-1">
+        <li [routerLink]="'/college/' + c.college_id" *ngFor="let c of colleges"><span class="material-icons pr-2">search</span> {{c.college_name}}, {{c.city_name}}</li>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<app-nav></app-nav>
+
+<app-header></app-header>
+
+<div class="main p-2">
+
+    <div class="filters p-2 d-none d-md-block">
+        <app-sidefilter (filter)="filterCollege($event)"></app-sidefilter>
+    </div>
+
+    <div class="mob-filter d-block d-md-none" *ngIf="value">
+        <app-sidefilter (filter)="filterCollege($event)"></app-sidefilter>
+    </div>
+
+    <button class="filter-btn d-block d-md-none" (click)="filtertoggle()">
+        <span class="material-icons" *ngIf="!value">filter_list</span>
+        <span class="material-icons" *ngIf="value">close</span>
+    </button>
+
+    <div class="results">
+        <div class="row mx-0" *ngIf="filterColleges && filterColleges.length > 0">
+            <div class="col-12 col-lg-6 col-xl-4 p-2" *ngFor="let c of filterColleges">
+                <app-college-card [slug]="c.slug" [id]="c.college_id" [cover]="mainUrl + 'images/colleges/banner/' + c.banner" [logo]="mainUrl + 'images/colleges/logo/' + c.logo" [name]='c.college_name' [location]='c.city_name + "," + c.state_name' [rating]='c.rating'
+                [courses]="c.summary"></app-college-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" (scrolled)="onScroll()"></div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,60 @@
+<section style="background-color: #f5f5f5;">
+    <div class="row mx-0 py-3">
+        <div class="col-lg-8 col-xl-9 px-2 py-0 px-lg-4">
+            <div class="box">
+                <div class="head">
+                    <h1>Info</h1>
+                </div>
+                <div class="cnt">
+                    <app-info-box [info]="c.short_desc"></app-info-box>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="head">
+                    <h1>Courses</h1>
+                </div>
+                <div class="cnt">
+                    <app-course-box [id]="c.college_id"></app-course-box>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="head">
+                    <h1>Faculty</h1>
+                </div>
+                <div class="cnt">
+                    <app-faculty-box [id]="c.college_id"></app-faculty-box>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="head">
+                    <h1>Placement</h1>
+                </div>
+                <div class="cnt">
+                    <app-placement-box [id]="c.college_id"></app-placement-box>
+                </div>
+            </div>
+
+            <!-- <div class="box">
+                <div class="head">
+                    <h1>Gallery</h1>
+                </div>
+                <div class="cnt">
+                    <app-gallery-box></app-gallery-box>
+                </div>
+            </div> -->
+        </div>
+        <div class="col-lg-4 col-xl-3 px-2 py-0 px-lg-4">
+            <div class="similar">
+                <h1>Similar Colleges</h1>
+                <div class="mb-3" *ngFor="let c of similar">
+                 <app-college-card [slug]="c.slug" [id]="c.college_id" [cover]="mainUrl + 'images/colleges/banner/' + c.banner" [logo]="mainUrl + 'images/colleges/logo/' + c.logo" [name]='c.college_name' [location]='c.city_name'></app-college-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-footer></app-footer>

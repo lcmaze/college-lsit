@@ -1,0 +1,25 @@
+<div class="head">
+    <img class="cover" [src]="mainUrl + 'images/colleges/banner/' + c.banner" alt="">
+    <div class="cnt">
+        <div class="container">
+            <img class="logo" [src]="mainUrl + 'images/colleges/logo/' + c.logo" alt="">
+            <h1 class="mt-3">{{c.college_name}}</h1>
+            <div class="detail">
+                <div class="p-2 p-md-3"><span class="material-icons mr-1">place</span>{{c.city_name}}, {{c.state_name}}</div>
+                <div class="p-2 p-md-3"><span class="material-icons mr-1">bookmark</span>{{c.appr_name.replace('|', '')}}</div>
+                <div class="p-2 p-md-3"><span class="material-icons mr-1">apartment</span>{{c.established}}</div>
+                <div class="p-2 p-md-3"><span class="material-icons mr-1">grade</span>{{c.type_name}}</div>
+            </div>
+            <button class="button-primary mt-2 mb-4" data-toggle="modal" data-target="#applynow"><span class="material-icons mr-1">thumb_up</span> Apply Now</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="applynow" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <app-applynow></app-applynow>
+        </div>
+    </div>
+</div>

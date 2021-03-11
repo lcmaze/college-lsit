@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-12 col-md-6 col-xl-4 p-3" *ngFor="let c of courses">
+        <div class="course">
+            <h2>{{c.college_course_name}}</h2>
+            <h4><span class="material-icons mr-1">schedule</span> {{c.college_course_time}}</h4>
+            <h4><span class="material-icons mr-1">hourglass_empty</span> {{c.college_course_type}}</h4>
+            <hr>
+            <h2>Streams</h2>
+            <h4 *ngFor="let stream of c.courses_list">{{stream.college_stream_name}}</h4>
+        </div>
+    </div>
+</div>

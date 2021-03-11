@@ -1,0 +1,12 @@
+<owl-carousel [options]="options" [items]="detail" [carouselClasses]="['owl-theme', 'sliding']">
+    <div class="item" *ngFor="let list of detail;let i = index">
+        <div class="slide">
+            <p>"{{list.text}}"</p>
+            <div class="identity">
+                <h5 class="mb-1">{{list.name}}</h5>
+                <h6>{{list.designation}}</h6>
+            </div>
+            <img class="prof-img" src={{list.image}} alt="">
+        </div>
+    </div>
+</owl-carousel>

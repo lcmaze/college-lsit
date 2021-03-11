@@ -1,0 +1,179 @@
+<form #filterForm="ngForm">
+    <div class="sticky-effect">
+        <div class="d-flex justify-content-between mb-2">
+            <h5 style="text-transform: uppercase;">Filters</h5>
+            <button class="clear-btn" (click)="filterForm.reset();reset()">Clear Filters</button>
+        </div>
+    
+        <div class="chips-set mb-2">
+            <a class="badge badge-success mr-1 mt-1" *ngIf="state_filter_selected" (click)="state_filter_selected = null;city_filter_selected = null;getApiLink()">{{state_filter_selected.state_name}}</a>
+            <a class="badge badge-success mr-1 mt-1" *ngIf="city_filter_selected" (click)="city_filter_selected = null;getApiLink()">{{city_filter_selected.city_name}}</a>
+            <a class="badge badge-success mr-1 mt-1" *ngIf="category_filter_selected" (click)="category_filter_selected = null;getApiLink()">{{category_filter_selected.category_name}}</a>
+            <a class="badge badge-success mr-1 mt-1" *ngIf="courses_filter_selected" (click)="courses_filter_selected = null;getApiLink()">{{courses_filter_selected.course_name}}</a>
+            <a class="badge badge-success mr-1 mt-1" *ngIf="specialisation_filter_selected" (click)="specialisation_filter_selected = null;getApiLink()">{{specialisation_filter_selected.s_name}}</a>
+            <a class="badge badge-success mr-1 mt-1" *ngIf="types_filter_selected" (click)="types_filter_selected = null;getApiLink()">{{types_filter_selected.type_name}}</a>
+            <a class="badge badge-success mr-1 mt-1" *ngIf="fees_filter_selected" (click)="fees_filter_selected = null;getApiLink()">{{fees_filter_selected.name}}</a>
+            <a class="badge badge-success mr-1 mt-1" *ngIf="approvals_filter_selected" (click)="approvals_filter_selected = null;getApiLink()">{{approvals_filter_selected.appr_name}}</a>
+        </div>
+    
+        <!-- states  -->
+        <div class="mb-1">
+            <div class="head px-3 py-2" data-toggle="collapse" href="#state">
+                State <span class="material-icons">expand_more</span>
+            </div>
+            <div class="collapse show" id="state">
+                <div class="cnt p-2">
+                    <input type="text" class="form-control form-control-sm mb-2" placeholder="Search" [(ngModel)]="searchState" name="search_state">
+                    <div class="res px-1">
+                        <form>
+                            <div class="custom-control custom-radio" *ngFor="let s of states | search:searchState; let i = index">
+                                <input type="radio" [id]="'s' + i" class="custom-control-input" [value]="s" [(ngModel)]="state_filter_selected" name="state_filter_selected" (change)="filters(filterForm)">
+                                <label class="custom-control-label" [for]="'s' + i">{{s.state_name}}</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- cities  -->
+        <div class="mb-1" *ngIf="cities">
+            <div class="head px-3 py-2" data-toggle="collapse" href="#city">
+                City <span class="material-icons">expand_more</span>
+            </div>
+            <div class="collapse show" id="city">
+                <div class="cnt p-2">
+                    <input type="text" class="form-control form-control-sm mb-2" placeholder="Search" [(ngModel)]="searchCity" name="search_city">
+                    <div class="res px-1">
+                        <form>
+                            <div class="custom-control custom-radio" *ngFor="let c of cities | search:searchCity; let i = index">
+                                <input type="radio" [id]="'c' + i" class="custom-control-input" [value]="c" [(ngModel)]="city_filter_selected" name="city_filter_selected" (change)="filters(filterForm)">
+                                <label class="custom-control-label" [for]="'c' + i">{{c.city_name}}</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- categories -->
+        <div class="mb-1">
+            <div class="head px-3 py-2" data-toggle="collapse" href="#categories">
+                Categories <span class="material-icons">expand_more</span>
+            </div>
+            <div class="collapse show" id="categories">
+                <div class="cnt p-2">
+                    <input type="text" class="form-control form-control-sm mb-2" placeholder="Search" [(ngModel)]="searchCategory" name="search_category">
+                    <div class="res px-1">
+                        <form>
+                            <div class="custom-control custom-radio" *ngFor="let c of category | search:searchCategory; let i = index">
+                                <input type="radio" [id]="'ct' + i" class="custom-control-input" [value]="c" [(ngModel)]="category_filter_selected" name="category_filter_selected" (change)="filters(filterForm)">
+                                <label class="custom-control-label" [for]="'ct' + i">{{c.category_name}}</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- courses  -->
+        <div class="mb-1">
+            <div class="head px-3 py-2" data-toggle="collapse" href="#courses">
+                Courses <span class="material-icons">expand_more</span>
+            </div>
+            <div class="collapse show" id="courses">
+                <div class="cnt p-2">
+                    <input type="text" class="form-control form-control-sm mb-2" placeholder="Search" [(ngModel)]="searchCourses" name="search_courses">
+                    <div class="res px-1">
+                        <form>
+                            <div class="custom-control custom-radio" *ngFor="let c of courses | search:searchCourses; let i = index">
+                                <input type="radio" [id]="'crs' + i" class="custom-control-input" [value]="c" [(ngModel)]="courses_filter_selected" name="courses_filter_selected" (change)="filters(filterForm)">
+                                <label class="custom-control-label" [for]="'crs' + i">{{c.course_name}}</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- specialisation  -->
+        <div class="mb-1" *ngIf="specialisation">
+            <div class="head px-3 py-2" data-toggle="collapse" href="#specialisations">
+                Specialisations <span class="material-icons">expand_more</span>
+            </div>
+            <div class="collapse show" id="specialisations">
+                <div class="cnt p-2">
+                    <input type="text" class="form-control form-control-sm mb-2" placeholder="Search" [(ngModel)]="searchSpecialisation" name="search_specialisation">
+                    <div class="res px-1">
+                        <form>
+                            <div class="custom-control custom-radio" *ngFor="let c of specialisation | search:searchSpecialisation; let i = index">
+                                <input type="radio" [id]="'spc' + i" class="custom-control-input" [value]="c" [(ngModel)]="specialisation_filter_selected" name="specialisation_filter_selected" (change)="filters(filterForm)">
+                                <label class="custom-control-label" [for]="'spc' + i">{{c.s_name}}</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- types  -->
+        <div class="mb-1" *ngIf="types">
+            <div class="head px-3 py-2" data-toggle="collapse" href="#types">
+                Types <span class="material-icons">expand_more</span>
+            </div>
+            <div class="collapse show" id="types">
+                <div class="cnt p-2">
+                    <input type="text" class="form-control form-control-sm mb-2" placeholder="Search" [(ngModel)]="searchTypes" name="search_types">
+                    <div class="res px-1">
+                        <form>
+                            <div class="custom-control custom-radio" *ngFor="let c of types | search:searchTypes; let i = index">
+                                <input type="radio" [id]="'typ' + i" class="custom-control-input" [value]="c" [(ngModel)]="types_filter_selected" name="types_filter_selected" (change)="filters(filterForm)">
+                                <label class="custom-control-label" [for]="'typ' + i">{{c.type_name}}</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- approvals  -->
+        <div class="mb-1">
+            <div class="head px-3 py-2" data-toggle="collapse" href="#approvals">
+                Approvals <span class="material-icons">expand_more</span>
+            </div>
+            <div class="collapse show" id="approvals">
+                <div class="cnt p-2">
+                    <input type="text" class="form-control form-control-sm mb-2" placeholder="Search" [(ngModel)]="approvalSearch" name="search_approvals">
+                    <div class="res px-1">
+                        <form>
+                            <div class="custom-control custom-radio" *ngFor="let a of approvals | search:approvalSearch; let i = index">
+                                <input type="radio" [id]="'appr' + i" class="custom-control-input" [value]="a" [(ngModel)]="approvals_filter_selected" name="approvals_filter_selected" (change)="filters(filterForm)">
+                                <label class="custom-control-label" [for]="'appr' + i">{{a.appr_name.replace('|', "")}}</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- fees  -->
+        <div class="mb-1">
+            <div class="head px-3 py-2" data-toggle="collapse" href="#fees">
+                Fees <span class="material-icons">expand_more</span>
+            </div>
+            <div class="collapse show" id="fees">
+                <div class="cnt p-2">
+                    <div class="res px-1">
+                        <form>
+                            <div class="custom-control custom-radio" *ngFor="let f of average_fees; let i = index">
+                                <input type="radio" [id]="'fees' + i" class="custom-control-input" [value]="f" [(ngModel)]="fees_filter_selected" name="fees_filter_selected" (change)="filters(filterForm)">
+                                <label class="custom-control-label" [for]="'fees' + i">{{f.name}}</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>

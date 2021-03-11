@@ -1,0 +1,47 @@
+.main {
+    display: flex;
+    position: relative !important;
+    .filters {
+        min-width: 320px;
+    }
+    .results {
+        width: calc(100%-280px);
+    }
+}
+
+.mob-filter {
+    position: fixed;
+    z-index: 101;
+    background-color: #fff;
+    padding: 20px;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow-y: auto;
+}
+
+.filter-btn {
+    position: fixed;
+    z-index: 102;
+    bottom: 10px;
+    right: 10px;
+    background-color: #66bb6a;
+    color: #fff;
+    border-radius: 100%;
+    border: none;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0px 0px 8px 0px #00000030;
+    span {
+        vertical-align: middle;
+    }
+}
+
+.filter-btn:hover {
+    background-color: #43a047;
+}
+
+.filter-btn:focus {
+    outline: none;
+}

@@ -1,0 +1,68 @@
+.modal-logo {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+    img {
+        width: 100%;
+        object-fit: contain;
+        max-width: 300px;
+    }
+}
+
+.content {
+    h1 {
+        font-size: 30px;
+        font-weight: 600;
+        color: #3d3d3d;
+        padding-left: 15px;
+    }
+    .ip {
+        margin-top: 14px;
+        label {
+            font-size: 12px;
+            font-weight: 300;
+            color: #7e7e7e;
+            margin-bottom: 0px;
+        }
+        input:focus,
+        select:focus {
+            box-shadow: none;
+            border: 1px solid #66bb6a;
+        }
+    }
+}
+
+.suggestion-box {
+    width: 700px;
+    max-width: 100%;
+    pointer-events: visible;
+    position: relative;
+    .suggestion-list {
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        width: 100%;
+        text-align: left;
+        border-radius: 6px;
+        box-shadow: 0px 0px 8px #00000020;
+        overflow: hidden;
+        li {
+            background-color: #fff;
+            color: #7e7e7e;
+            width: 100%;
+            list-style: none;
+            padding: 8px 16px;
+            border-bottom: 1px solid #eaeaea;
+            cursor: pointer;
+            font-size: 13px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        li:hover {
+            background-color: #eaeaea;
+            color: #3d3d3d;
+        }
+    }
+}

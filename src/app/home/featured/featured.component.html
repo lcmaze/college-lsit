@@ -1,0 +1,15 @@
+<section>
+    <div class="container text-center">
+        <h1 class="d-grid d-sm-inline pl-sm-3">Featured <span class="px-3">Colleges</span></h1>
+        <div class="row mx-0 mt-6">
+            <div class="col-12 col-md-6 col-xl-4 p-2 p-xl-3" *ngFor="let c of filterColleges | slice:0:18">
+                <app-college-card [slug]="c.slug" [id]="c.college_id" [cover]="mainUrl + 'images/colleges/banner/' + c.banner" [logo]="mainUrl + 'images/colleges/logo/' + c.logo" [name]='c.college_name' [location]='c.city_name + "," + c.state_name' [rating]='c.rating'
+                [courses]="c.summary"></app-college-card>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button class="button-primary" routerLink="/filter">View All Colleges</button>
+        </div>
+    </div>
+</section>

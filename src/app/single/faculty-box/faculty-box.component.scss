@@ -1,0 +1,25 @@
+.faculty {
+    // box-shadow: 0px 3px 8px 0px #00000020;
+    border: 1px solid #eee;
+    padding: 16px;
+    color: #3d3d3d;
+    border-radius: 6px;
+    h2 {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    h3 {
+        font-size: 14px;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+    h4 {
+        color: #7a7a7a;
+        font-size: 13px;
+        font-weight: 300;
+        span {
+            vertical-align: bottom;
+            font-size: 14px;
+        }
+    }
+}

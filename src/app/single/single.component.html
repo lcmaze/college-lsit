@@ -1,0 +1,7 @@
+<ng-container *ngFor="let c of college | slice:0:1">
+    <app-nav></app-nav>
+
+    <app-head [college]="c"></app-head>
+
+    <app-details *ngIf="similar_colleges" [college]="c" [similar]="similar_colleges"></app-details>
+</ng-container>

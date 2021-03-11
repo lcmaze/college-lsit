@@ -1,0 +1,36 @@
+.height-set {
+    height: 100vh;
+}
+
+.item img {
+    height: 100vh;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    box-shadow: 100vh 100vh 100vh 100vh inset #00000080;
+    background-color: #00000020;
+    pointer-events: none;
+    h1 {
+        font-size: 46px;
+        font-weight: 300;
+        span {
+            font-weight: 700;
+        }
+    }
+}
+
+@media (max-width:767.98px) {
+    .overlay {
+        h1 {
+            font-size: 30px;
+        }
+    }
+}
